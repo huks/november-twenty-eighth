@@ -5,8 +5,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 
+import { useRouter } from 'next/router'
+import * as gtag from '../lib/gtag'
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const router = useRouter()
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -15,6 +19,16 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  React.useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <React.Fragment>
