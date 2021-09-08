@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     // [theme.breakpoints.down('md')]: {
     //   flexDirection: 'column',
     // },
-    backgroundColor: 'green',
+    backgroundColor: 'blue',
+    marginBottom: 25,
   },
 }))
 
@@ -31,7 +32,7 @@ export default function Gallery() {
   }
 
   return (
-    <div id="gallery">
+    <div className={classes.root} id="gallery">
       {/* <ImageCard photo={photos[0]} checked={checked} />
       <ImageCard photo={photos[1]} checked={checked} /> */}
       {/* <div className={classes.root} id="gallery"> */}

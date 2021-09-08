@@ -34,7 +34,7 @@ export default function ImageCard({ photo, checked }) {
 
   return (
     // <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
-    <Card className={classes.root} square="true">
+    <Card className={classes.root} square={true}>
       <CardMedia
         className={classes.media}
         image={photo.imageUrl}

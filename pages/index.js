@@ -6,11 +6,12 @@ import ProTip from '../src/ProTip'
 import Link from '../src/Link'
 import Copyright from '../src/Copyright'
 import Gallery from '../src/Gallery'
+import KakaoMap from '../src/KakaoMap'
 
 export default function Index() {
   return (
     <Container sx={{ bgcolor: 'red' }}>
-      <Box sx={{ bgcolor: 'blue' }} id="header">
+      <Box sx={{ bgcolor: 'green' }} id="header">
         <Typography variant="h4" component="h1" gutterBottom>
           november-twenty-eighth
         </Typography>
@@ -21,6 +22,7 @@ export default function Index() {
         <Copyright />
       </Box>
       <Gallery />
+      <KakaoMap />
     </Container>
   )
 }
