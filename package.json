@@ -9,7 +9,9 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-ga": "^3.3.0"
+    "react-ga": "^3.3.0",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "dev": "next",
