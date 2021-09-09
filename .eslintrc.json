@@ -2,7 +2,7 @@
   "extends": ["next/core-web-vitals", "prettier"],
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {"singleQuote": true,  "parser": "flow", "endOfLine": "auto", "semi": false}],
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off"
   }
