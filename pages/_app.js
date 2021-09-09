@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../src/theme'
 
 import { useRouter } from 'next/router'
-import * as gtag from '../libs/gtag'
+import * as gtag from '../lib/gtag'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'

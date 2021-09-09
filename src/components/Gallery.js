@@ -1,9 +1,10 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { makeStyles } from '@material-ui/core/styles'
+import Box from '@material-ui/core/Box'
 import ImageCard from './ImageCard'
-import photos from './static/photos'
-// import useWindowPosition from "./hooks/use-window-position"
+import photos from '../static/photos'
+// import useWindowPosition from './hooks/useWindowPosition'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     // },
     backgroundColor: 'blue',
     marginBottom: 25,
+    padding: '4rem 0',
   },
 }))
 
@@ -32,16 +34,12 @@ export default function Gallery() {
   }
 
   return (
-    <div className={classes.root} id="gallery">
-      {/* <ImageCard photo={photos[0]} checked={checked} />
-      <ImageCard photo={photos[1]} checked={checked} /> */}
-      {/* <div className={classes.root} id="gallery"> */}
+    <Box className={classes.root} id="gallery">
       <Slider {...settings}>
         <ImageCard photo={photos[0]} checked={false} />
         <ImageCard photo={photos[1]} checked={false} />
         <ImageCard photo={photos[2]} checked={false} />
       </Slider>
-      {/* </div> */}
-    </div>
+    </Box>
   )
 }
