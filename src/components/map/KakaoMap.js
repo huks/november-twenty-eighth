@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-const MAP_KEY = process.env.NEXT_PUBLIC_KAKAO_MAP_APP_KEY
+const APP_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -18,12 +18,12 @@ export default function KakaoMap() {
   const loadKakaoMapScript = () => {
     const script = document.createElement('script')
     script.async = true
-    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${MAP_KEY}&autoload=false`
+    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${APP_KEY}&autoload=false`
     document.head.appendChild(script)
 
     script.onload = () => {
       window.kakao.maps.load(() => {
-        console.log('kakao map loaded')
+        console.log('Kakao map loaded')
         const container = document.getElementById('kakao-map')
         const options = {
           center: new kakao.maps.LatLng(37.506502, 127.053617),

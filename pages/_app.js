@@ -7,6 +7,7 @@ import theme from '../src/theme'
 
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
+import kakao from '../lib/kakao'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -22,6 +23,8 @@ export default function MyApp(props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles)
     }
+    // Initialize Kakao JS SDK
+    kakao.initialize()
   }, [])
 
   React.useEffect(() => {
