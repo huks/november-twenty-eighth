@@ -1,4 +1,5 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Intro from '../src/components/Intro'
 import Greeting from '../src/components/greeting/GreetingContainer'
@@ -8,9 +9,17 @@ import Map from '../src/components/map/MapContainer'
 import Notice from '../src/components/Notice'
 import Footer from '../src/components/Footer'
 
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: 0,
+    textAlign: 'center',
+  },
+}))
+
 export default function Index() {
+  const classes = useStyles()
   return (
-    <Container sx={{ bgcolor: 'grey' }}>
+    <Container className={classes.root}>
       <Intro />
       <Greeting />
       <Calendar />

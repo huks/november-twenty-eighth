@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "clsx": "latest",
+    "date-fns": "^2.23.0",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
