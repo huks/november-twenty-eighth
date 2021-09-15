@@ -13,15 +13,16 @@ const useStyles = makeStyles(() => ({
   root: {
     padding: 0,
     textAlign: 'center',
+    backgroundColor: '#f3f3f3',
   },
 }))
 
 export default function Index() {
   const classes = useStyles()
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} maxWidth="xs">
       <Intro />
-      <Greeting />
+      {/* <Greeting /> */}
       <Calendar />
       <Gallery />
       <Map />
