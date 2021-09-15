@@ -59,7 +59,7 @@ export default function Intro() {
         <Typography variant="body1">
           {format(parseISO(weddingInfo.date), 'PPPP B h시', { locale: ko })}
         </Typography>
-        <Typography variant="body1">{weddingInfo.place}</Typography>
+        <Typography variant="body1">{weddingInfo.place.name}</Typography>
       </Box>
     </Box>
   )

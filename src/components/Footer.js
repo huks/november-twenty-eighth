@@ -27,7 +27,7 @@ export default function Footer() {
         title: `${weddingInfo.groom.name} ♥ ${weddingInfo.bride.name} 결혼합니다.`,
         description: `${format(parseISO(weddingInfo.date), 'EEEE B h시', {
           locale: ko,
-        })}\n${weddingInfo.place}`,
+        })}\n${weddingInfo.place.name}`,
         imageUrl: weddingInfo.kakaoImageUrl,
         link: {
           mobileWebUrl: kakaoConfig.siteDomain,
