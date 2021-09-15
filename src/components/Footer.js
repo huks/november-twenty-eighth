@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { kakaoConfig } from '../config'
 import kakao from '../../lib/kakao'
+import weddingInfo from '../static/wedding'
+import { parseISO, format } from 'date-fns'
+import ko from 'date-fns/locale/ko'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,10 +24,11 @@ export default function Footer() {
     kakao.sendLink({
       objectType: 'feed',
       content: {
-        title: '김병주 ♥ 원빛나 결혼합니다.',
-        description: '11월 28일 일요일 오후 12시\n트라디노이',
-        imageUrl:
-          'https://lh3.googleusercontent.com/DBo2tVxLv5EI0cBvskFA_3tVGQcqZiMAjrl5jjyPckhFyiCDrfEUkshmIbjFaOMdG8uSOSrVIEbgLJn-9XGvQj9P7GoXlgzYqscdIZ2wUY2u_A_b1YbIYb9_oe9YGPkPd_xLJjegst0=w2400',
+        title: `${weddingInfo.groom.name} ♥ ${weddingInfo.bride.name} 결혼합니다.`,
+        description: `${format(parseISO(weddingInfo.date), 'EEEE B h시', {
+          locale: ko,
+        })}\n${weddingInfo.place}`,
+        imageUrl: weddingInfo.kakaoImageUrl,
         link: {
           mobileWebUrl: kakaoConfig.siteDomain,
           webUrl: kakaoConfig.siteDomain,
