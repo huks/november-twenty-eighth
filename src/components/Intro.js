@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     boxShadow: '1px 1px 3px rgb(0 0 0 / 5%)',
   },
   title: {
-    padding: '3rem 1rem',
+    padding: '2rem 1rem',
     display: 'flex',
     // justifyContent: 'center',
   },
@@ -23,8 +23,14 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  img: {
+    width: '100%',
+    // height: 468,
+    objectFit: 'contain',
+    objectPosition: 'bottom',
+  },
   datePlace: {
-    padding: '3rem 0',
+    padding: '2rem 0',
   },
 }))
 
@@ -53,7 +59,7 @@ export default function Intro() {
         </Typography>
       </Box>
       <Box>
-        <img src={weddingInfo.imageUrl} width="100%"></img>
+        <img src={weddingInfo.imageUrl} className={classes.img}></img>
       </Box>
       <Box className={classes.datePlace}>
         <Typography variant="body1">
