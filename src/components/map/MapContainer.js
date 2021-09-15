@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
   waytocome: {
     padding: '3rem 0',
-  }
+  },
 }))
 
 const MapContainer = () => {

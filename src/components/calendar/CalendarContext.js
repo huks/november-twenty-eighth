@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
     margin: '0 1rem',
     border: '1px solid hsla(8,26%,54%,.3)',
     borderLeft: 0,
-    borderRight: 0
+    borderRight: 0,
   },
 }))
 

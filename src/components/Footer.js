@@ -70,7 +70,9 @@ export default function Footer() {
 
   return (
     <Box className={classes.root} id="footer">
-      <Typography style={{ cursor: 'pointer' }} onClick={handleClick}>카카오톡으로 공유하기</Typography>
+      <Typography style={{ cursor: 'pointer' }} onClick={handleClick}>
+        카카오톡으로 공유하기
+      </Typography>
       {/* <a id="create-kakao-link-btn" onClick={handleClick}>
         <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
       </a> */}

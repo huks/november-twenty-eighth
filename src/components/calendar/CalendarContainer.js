@@ -4,7 +4,7 @@ import { Box, Typography } from '@material-ui/core'
 import CalendarContext from './CalendarContext'
 import weddingInfo from '../../static/wedding'
 import { parseISO, format, formatDistanceToNowStrict, isAfter } from 'date-fns'
-import ko from "date-fns/locale/ko"
+import ko from 'date-fns/locale/ko'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -38,14 +38,18 @@ const getSuffix = (date) => {
 
 const CalendarContainer = () => {
   const classes = useStyles()
-  
+
   return (
     <Box className={classes.root}>
       <Box className={classes.title}>
-        <Typography variant="h5">{format(parseISO(weddingInfo.date), 'MMM do', { locale: ko })}</Typography>
-        <Typography variant="body2">{format(parseISO(weddingInfo.date), 'EEEE B h시', { locale: ko })}</Typography>
+        <Typography variant="h5">
+          {format(parseISO(weddingInfo.date), 'MMM do', { locale: ko })}
+        </Typography>
+        <Typography variant="body2">
+          {format(parseISO(weddingInfo.date), 'EEEE B h시', { locale: ko })}
+        </Typography>
       </Box>
-      <CalendarContext date={parseISO(weddingInfo.date)}/>
+      <CalendarContext date={parseISO(weddingInfo.date)} />
       <Box className={classes.dday}>
         <Typography variant="body2">
           {weddingInfo.groom.firstName}
@@ -53,7 +57,9 @@ const CalendarContainer = () => {
           {weddingInfo.bride.firstName}
           {`의 결혼식이`}
           &nbsp;
-          <span className={classes.highlight}>{getDday(parseISO(weddingInfo.date))}</span>
+          <span className={classes.highlight}>
+            {getDday(parseISO(weddingInfo.date))}
+          </span>
           &nbsp;
           {getSuffix(parseISO(weddingInfo.date))}
         </Typography>
