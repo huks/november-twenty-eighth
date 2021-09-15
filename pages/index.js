@@ -1,24 +1,33 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
-import Copyright from '../src/Copyright';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import Intro from '../src/components/Intro'
+import Greeting from '../src/components/greeting/GreetingContainer'
+import Calendar from '../src/components/calendar/CalendarContainer'
+import Gallery from '../src/components/Gallery'
+import Map from '../src/components/map/MapContainer'
+import Notice from '../src/components/Notice'
+import Footer from '../src/components/Footer'
+
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: 0,
+    textAlign: 'center',
+    backgroundColor: '#f3f3f3',
+  },
+}))
 
 export default function Index() {
+  const classes = useStyles()
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          november-twenty-eighth
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
-      </Box>
+    <Container className={classes.root} maxWidth="xs">
+      <Intro />
+      {/* <Greeting /> */}
+      <Calendar />
+      <Gallery />
+      <Map />
+      {/* <Notice /> */}
+      <Footer />
     </Container>
-  );
+  )
 }

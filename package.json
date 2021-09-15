@@ -5,16 +5,29 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "clsx": "latest",
+    "date-fns": "^2.23.0",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
+    "react-calendar": "^3.4.0",
     "react-dom": "latest",
-    "react-ga": "^3.3.0"
+    "react-ga": "^3.3.0",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint --fix",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2"
   }
 }
+
