@@ -42,7 +42,7 @@ const CalendarContainer = () => {
   return (
     <Box className={classes.root}>
       <Box className={classes.title}>
-        <Typography variant="h6">{format(parseISO(weddingInfo.date), 'MMM do', { locale: ko })}</Typography>
+        <Typography variant="h5">{format(parseISO(weddingInfo.date), 'MMM do', { locale: ko })}</Typography>
         <Typography variant="body2">{format(parseISO(weddingInfo.date), 'EEEE B h시', { locale: ko })}</Typography>
       </Box>
       <CalendarContext date={parseISO(weddingInfo.date)}/>

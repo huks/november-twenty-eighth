@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     // margin: '20px',
   },
   media: {
-    height: 440,
+    height: 630,
   },
   title: {
     fontFamily: 'Nunito',
@@ -38,7 +38,6 @@ export default function ImageCard({ photo, checked }) {
       <CardMedia
         className={classes.media}
         image={photo.imageUrl}
-        title="Contemplative Reptile"
       />
       {/* <CardContent>
         <Typography
