@@ -6,7 +6,7 @@ import { red } from '@material-ui/core/colors'
 const sunBatangLight = {
   fontFamily: 'SunBatangLight',
   src: `url('/fonts/SunBatang-Light.woff') format('woff')`,
-};
+}
 
 // Create a theme instance.
 const theme = createTheme({
@@ -21,7 +21,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '-apple-system, SunBatangLight, sans-serif',
+    fontFamily: 'SunBatangLight, -apple-system, sans-serif',
   },
   palette: {
     primary: {

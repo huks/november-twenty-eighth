@@ -29,7 +29,7 @@ export default function Gallery() {
   const settings = {
     dots: true,
     // lazyLoad: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

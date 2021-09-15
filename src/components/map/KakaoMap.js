@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 
 const APP_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY
 
@@ -12,7 +13,8 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function KakaoMap() {
+export default function KakaoMap(props) {
+  const { latitude, longitude } = props
   const classes = useStyles()
 
   const loadKakaoMapScript = () => {
@@ -26,13 +28,13 @@ export default function KakaoMap() {
         console.log('Kakao map loaded')
         const container = document.getElementById('kakao-map')
         const options = {
-          center: new kakao.maps.LatLng(37.506502, 127.053617),
+          center: new kakao.maps.LatLng(latitude, longitude),
           level: 7,
         }
 
         const map = new window.kakao.maps.Map(container, options)
 
-        const markerPosition = new kakao.maps.LatLng(37.506502, 127.053617)
+        const markerPosition = new kakao.maps.LatLng(latitude, longitude)
 
         // 마커를 생성
         const marker = new kakao.maps.Marker({
@@ -50,4 +52,9 @@ export default function KakaoMap() {
   }, [])
 
   return <div className={classes.root} id="kakao-map"></div>
+}
+
+KakaoMap.propTypes = {
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
 }
