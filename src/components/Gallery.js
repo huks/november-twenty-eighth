@@ -28,7 +28,7 @@ export default function Gallery() {
 
   const settings = {
     dots: true,
-    lazyLoad: true,
+    // lazyLoad: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
