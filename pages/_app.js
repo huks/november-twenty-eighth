@@ -11,6 +11,7 @@ import kakao from '../lib/kakao'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import './slick-override.css'
 // import 'react-calendar/dist/Calendar.css'
 import '../src/components/calendar/Calendar.css'
 
