@@ -16,6 +16,7 @@ const theme = createTheme({
         '@font-face': [sunBatangLight],
         body: {
           touchAction: 'pan-y',
+          backgroundColor: '#313131',
         },
       },
     },

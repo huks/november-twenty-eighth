@@ -14,7 +14,9 @@ const useStyles = makeStyles({
     // margin: '20px',
   },
   media: {
-    height: 630,
+    // height: 468,
+    objectFit: 'cover',
+    objectPosition: 'bottom',
   },
   title: {
     fontFamily: 'Nunito',
@@ -35,7 +37,11 @@ export default function ImageCard({ photo, checked }) {
   return (
     // <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
     <Card className={classes.root} square={true}>
-      <CardMedia className={classes.media} image={photo.imageUrl} />
+      <CardMedia
+        component="img"
+        className={classes.media}
+        image={photo.imageUrl}
+      />
       {/* <CardContent>
         <Typography
           gutterBottom
