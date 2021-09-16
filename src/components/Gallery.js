@@ -5,6 +5,7 @@ import { Box, Typography } from '@material-ui/core'
 import ImageCard from './ImageCard'
 import photos from '../static/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
+import * as gtag from '../../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +48,16 @@ export default function Gallery() {
   const classes = useStyles()
   const containerRef = createRef()
 
+  const onSlideChange = (index) => {
+    // console.log('onSlideChange:', index)
+    gtag.event({
+      action: 'view_item',
+      category: 'engagement',
+      value: index,
+      index: index,
+    })
+  }
+
   const settings = {
     dots: true,
     // lazyLoad: true,
@@ -54,7 +65,17 @@ export default function Gallery() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    afterChange: (current) => onSlideChange(current),
   }
+
+  useEffect(() => {
+    gtag.event({
+      action: 'view_item',
+      category: 'engagement',
+      value: 0,
+      index: 0,
+    })
+  })
 
   useEffect(() => {
     if (containerRef.current) {
