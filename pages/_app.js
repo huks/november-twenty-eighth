@@ -32,6 +32,10 @@ export default function MyApp(props) {
     kakao.initialize()
   }, [])
 
+  React.useEffect(() => {
+    gtm.push({ event: 'page_view' })
+  }, [])
+
   // React.useEffect(() => {
   //   const handleRouteChange = (url) => {
   //     gtag.pageview(url)

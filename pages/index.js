@@ -21,9 +21,9 @@ const useStyles = makeStyles(() => ({
 export default function Index() {
   const classes = useStyles()
 
-  React.useEffect(() => {
-    gtm.push({ event: 'page_view' })
-  }, [])
+  // React.useEffect(() => {
+  //   gtm.push({ event: 'page_view' })
+  // }, [])
 
   return (
     <Container className={classes.root} maxWidth="xs">
