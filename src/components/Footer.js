@@ -6,6 +6,7 @@ import kakao from '../../lib/kakao'
 import weddingInfo from '../static/wedding'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
+import * as gtag from '../../lib/gtag'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,8 +18,30 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
+const isBottom = (el) => {
+  return el.getBoundingClientRect().bottom <= window.innerHeight
+}
+
+const handleScroll = () => {
+  const el = document.getElementById('footer')
+  if (isBottom(el)) {
+    window.removeEventListener('scroll', handleScroll)
+    gtag.event({
+      action: 'view_end',
+    })
+  }
+}
+
 export default function Footer() {
   const classes = useStyles()
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   const handleClick = () => {
     kakao.sendLink({
