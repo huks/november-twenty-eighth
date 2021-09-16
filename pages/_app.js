@@ -7,7 +7,6 @@ import theme from '../src/theme'
 
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-import gtm from '../lib/gtm'
 import kakao from '../lib/kakao'
 
 import 'slick-carousel/slick/slick.css'
@@ -26,21 +25,19 @@ export default function MyApp(props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles)
     }
-    // Initialize gtm
-    gtm.initialize()
     // Initialize Kakao JS SDK
     kakao.initialize()
   }, [])
 
-  // React.useEffect(() => {
-  //   const handleRouteChange = (url) => {
-  //     gtag.pageview(url)
-  //   }
-  //   router.events.on('routeChangeComplete', handleRouteChange)
-  //   return () => {
-  //     router.events.off('routeChangeComplete', handleRouteChange)
-  //   }
-  // }, [router.events])
+  React.useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <React.Fragment>

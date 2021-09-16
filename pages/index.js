@@ -8,7 +8,6 @@ import Gallery from '../src/components/Gallery'
 import Map from '../src/components/map/MapContainer'
 import Notice from '../src/components/Notice'
 import Footer from '../src/components/Footer'
-import gtm from '../lib/gtm'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -20,20 +19,15 @@ const useStyles = makeStyles(() => ({
 
 export default function Index() {
   const classes = useStyles()
-
-  React.useEffect(() => {
-    gtm.push({ event: 'page_view' })
-  }, [])
-
   return (
     <Container className={classes.root} maxWidth="xs">
-      {/* <Intro /> */}
+      <Intro />
       {/* <Greeting /> */}
-      {/* <Calendar /> */}
+      <Calendar />
       <Gallery />
-      {/* <Map /> */}
-      <Notice />
-      {/* <Footer /> */}
+      <Map />
+      {/* <Notice /> */}
+      <Footer />
     </Container>
   )
 }
