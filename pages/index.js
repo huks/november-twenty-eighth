@@ -24,11 +24,11 @@ export default function Index() {
   return (
     <Container className={classes.root} maxWidth="xs">
       <Intro />
-      <Greeting />
+      {/* <Greeting /> */}
       <Calendar />
       <Gallery />
       <Map />
-      <Notice />
+      {/* <Notice /> */}
       <Account />
       <Footer />
     </Container>
