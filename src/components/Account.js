@@ -99,7 +99,9 @@ export default function Account() {
               content: classes.accordionContent,
             }}
           >
-            <Typography className={classes.heading}>신랑측 계좌번호</Typography>
+            <Typography variant="body2" className={classes.heading}>
+              신랑측 계좌번호
+            </Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.accordianDetails}>
             <Box className={classes.box1}>
@@ -132,7 +134,9 @@ export default function Account() {
               content: classes.accordionContent,
             }}
           >
-            <Typography className={classes.heading}>신부측 계좌번호</Typography>
+            <Typography variant="body2" className={classes.heading}>
+              신부측 계좌번호
+            </Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.accordianDetails}>
             <Box className={classes.box1}>
