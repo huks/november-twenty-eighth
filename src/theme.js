@@ -13,12 +13,17 @@ const sunBatangMedium = {
   src: `url('/fonts/SunBatang-Medium.woff') format('woff')`,
 }
 
+const pretendardRegular = {
+  fontFamily: 'Pretendard-Regular',
+  src: `url('/fonts/Pretendard-Regular.woff2') format('woff2')`,
+}
+
 // Create a theme instance.
 const theme = createTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [sunBatangLight, sunBatangMedium],
+        '@font-face': [sunBatangLight, sunBatangMedium, pretendardRegular],
         body: {
           touchAction: 'pan-y',
           backgroundColor: '#313131',

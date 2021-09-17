@@ -7,6 +7,7 @@ import Calendar from '../src/components/calendar/CalendarContainer'
 import Gallery from '../src/components/Gallery'
 import Map from '../src/components/map/MapContainer'
 import Notice from '../src/components/Notice'
+import Account from '../src/components/Account'
 import Footer from '../src/components/Footer'
 
 const useStyles = makeStyles(() => ({
@@ -28,6 +29,7 @@ export default function Index() {
       <Gallery />
       <Map />
       <Notice />
+      <Account />
       <Footer />
     </Container>
   )
