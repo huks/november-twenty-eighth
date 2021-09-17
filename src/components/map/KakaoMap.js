@@ -8,7 +8,7 @@ const APP_KEY = process.env.NEXT_PUBLIC_KAKAO_APP_KEY
 const useStyles = makeStyles(() => ({
   root: {
     // width: '100%',
-    height: '400px',
+    height: '240px',
     // backgroundColor: 'green',
   },
 }))

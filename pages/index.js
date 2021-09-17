@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
   root: {
     padding: 0,
     textAlign: 'center',
+    color: '#333',
     backgroundColor: '#f3f3f3',
   },
 }))

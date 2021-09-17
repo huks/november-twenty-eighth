@@ -8,12 +8,17 @@ const sunBatangLight = {
   src: `url('/fonts/SunBatang-Light.woff') format('woff')`,
 }
 
+const sunBatangMedium = {
+  fontFamily: 'SunBatangMedium',
+  src: `url('/fonts/SunBatang-Medium.woff') format('woff')`,
+}
+
 // Create a theme instance.
 const theme = createTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [sunBatangLight],
+        '@font-face': [sunBatangLight, sunBatangMedium],
         body: {
           touchAction: 'pan-y',
           backgroundColor: '#313131',
@@ -36,6 +41,9 @@ const theme = createTheme({
     },
     background: {
       default: '#fff',
+    },
+    text: {
+      secondary: '#a96b6c',
     },
   },
 })
