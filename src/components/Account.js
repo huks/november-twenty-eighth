@@ -73,7 +73,7 @@ export default function Account() {
         val = '3333140865923'
         break
       case 'bride':
-        val = 'XXXXXXXXXXXXX'
+        val = '1002251007485'
         break
     }
     navigator.clipboard.writeText(val).then(() => {
@@ -138,7 +138,7 @@ export default function Account() {
             <Box className={classes.box1}>
               <Box className={classes.box2}>
                 <Typography className={classes.text}>
-                  카카오뱅크 XXXX-XX-XXXXXXX
+                  우리은행 1002-25-1007485
                 </Typography>
                 <Typography className={classes.text}>원빛나</Typography>
               </Box>
