@@ -98,8 +98,12 @@ export default function Gallery() {
   return (
     <Box className={classes.root} id="gallery">
       <Box className={classes.title}>
-        <Typography variant="h5">갤러리</Typography>
-        <Typography variant="body2">GALLERY</Typography>
+        <Typography variant="h5" color="textSecondary">
+          갤러리
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          GALLERY
+        </Typography>
       </Box>
       <Box ref={containerRef}>
         <Slider {...settings}>

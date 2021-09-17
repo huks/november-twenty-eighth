@@ -84,7 +84,7 @@ export default function Account() {
   return (
     <Box className={classes.root} id="account">
       <Box className={classes.title}>
-        <Typography variant="body2" color="textSecondary">
+        <Typography variant="body1" color="textSecondary">
           마음 전하실 곳
         </Typography>
       </Box>
