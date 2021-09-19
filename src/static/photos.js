@@ -1,6 +1,6 @@
 const photos = [
   {
-    imageUrl: './images/1.jpg',
+    imageUrl: './images/4.jpg',
   },
   {
     imageUrl: './images/2.jpg',
