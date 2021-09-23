@@ -111,7 +111,7 @@ export default function Footer() {
       </Box>
       <Box style={{ marginTop: 12 }}>
         <Typography variant="caption" className={classes.copyright}>
-          Copyright 2021. All rights reserved.
+          {`© 김병주 2021`}
         </Typography>
       </Box>
     </Box>
