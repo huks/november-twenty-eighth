@@ -28,7 +28,7 @@ export default function Index() {
       <Calendar />
       <Gallery />
       <Map />
-      {/* <Notice /> */}
+      <Notice />
       <Account />
       <Footer />
     </Container>
