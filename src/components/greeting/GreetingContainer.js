@@ -53,10 +53,11 @@ export default function GreetingContainer() {
           오셔서 따뜻한 사랑으로 축복해 주십시오.
         </Typography>
       </Box>
-      <Box>
+      {/* FIXME: remove padding bottom */}
+      <Box style={{ background: 'rgba(140,117,93,.07)' }}>
         <img src={weddingInfo.secondaryImageUrl} className={classes.img}></img>
       </Box>
-      <Box style={{ padding: '1.2rem 0' }}>
+      <Box style={{ padding: '1.2rem 0', background: 'rgba(140,117,93,.07)' }}>
         <Typography variant="h6" className={classes.text}>
           {weddingInfo.groom.family.father}
           <span>&nbsp;·&nbsp;</span>
