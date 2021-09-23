@@ -18,6 +18,12 @@ const useStyles = makeStyles({
     objectFit: 'cover',
     objectPosition: 'bottom',
   },
+  img: {
+    width: '100%',
+    height: 468,
+    objectFit: 'cover',
+    objectPosition: 'bottom',
+  },
   title: {
     fontFamily: 'Nunito',
     fontWeight: 'bold',
@@ -34,14 +40,23 @@ const useStyles = makeStyles({
 export default function ImageCard({ photo, checked }) {
   const classes = useStyles()
 
+  const handleImageLoad = (imageUrl) => {
+    // console.log('handleImageLoad:', imageUrl)
+  }
+
   return (
     // <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
     <Card className={classes.root} square={true}>
-      <CardMedia
+      <img
+        src={photo.imageUrl}
+        className={classes.img}
+        onLoad={() => handleImageLoad(photo.imageUrl)}
+      ></img>
+      {/* <CardMedia
         component="img"
         className={classes.media}
         image={photo.imageUrl}
-      />
+      /> */}
       {/* <CardContent>
         <Typography
           gutterBottom

@@ -44,6 +44,24 @@ const touchStart = (e) => {
   firstClientX = e.touches[0].clientX
 }
 
+const isBottom = (el) => {
+  return el.getBoundingClientRect().bottom <= window.innerHeight
+}
+
+const handleScroll = () => {
+  const el = document.getElementById('gallery')
+  if (isBottom(el)) {
+    window.removeEventListener('scroll', handleScroll)
+    gtag.event({
+      action: 'view_item',
+      category: 'gallery',
+      value: photos[0].title,
+      index: 0,
+      non_interaction: true,
+    })
+  }
+}
+
 export default function Gallery() {
   const classes = useStyles()
   const containerRef = createRef()
@@ -69,16 +87,6 @@ export default function Gallery() {
   }
 
   useEffect(() => {
-    gtag.event({
-      action: 'view_item',
-      category: 'gallery',
-      value: photos[0].title,
-      index: 0,
-      non_interaction: true,
-    })
-  })
-
-  useEffect(() => {
     if (containerRef.current) {
       containerRef.current.addEventListener('touchstart', touchStart)
       containerRef.current.addEventListener('touchmove', preventTouch, {
@@ -93,6 +101,14 @@ export default function Gallery() {
           passive: false,
         })
       }
+    }
+  })
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
   })
 
