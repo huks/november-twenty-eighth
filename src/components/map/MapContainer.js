@@ -40,7 +40,6 @@ const MapContainer = () => {
   const classes = useStyles()
 
   const handleLinkMap = () => {
-    console.log('handleLinkMap')
     window.open(
       `https://map.kakao.com/link/map/${weddingInfo.place.kakaoPlaceId}`,
       '_blank'
