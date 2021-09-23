@@ -52,8 +52,8 @@ export default function Gallery() {
     // console.log('onSlideChange:', index)
     gtag.event({
       action: 'view_item',
-      category: 'engagement',
-      value: index,
+      category: 'gallery',
+      value: photos[index].title,
       index: index,
     })
   }
@@ -71,9 +71,10 @@ export default function Gallery() {
   useEffect(() => {
     gtag.event({
       action: 'view_item',
-      category: 'engagement',
-      value: 0,
+      category: 'gallery',
+      value: photos[0].title,
       index: 0,
+      non_interaction: true,
     })
   })
 
@@ -107,9 +108,9 @@ export default function Gallery() {
       </Box>
       <Box ref={containerRef}>
         <Slider {...settings}>
-          <ImageCard photo={photos[0]} checked={false} />
-          <ImageCard photo={photos[1]} checked={false} />
-          <ImageCard photo={photos[2]} checked={false} />
+          {photos.map((photo) => (
+            <ImageCard key={photo} photo={photo} checked={false} />
+          ))}
         </Slider>
       </Box>
     </Box>
