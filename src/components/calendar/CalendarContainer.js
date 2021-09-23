@@ -5,6 +5,7 @@ import CalendarContext from './CalendarContext'
 import weddingInfo from '../../static/wedding'
 import { parseISO, format, formatDistanceToNowStrict, isAfter } from 'date-fns'
 import ko from 'date-fns/locale/ko'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -36,7 +37,9 @@ const getSuffix = (date) => {
   return suffix
 }
 
-const CalendarContainer = () => {
+const CalendarContainer = (props) => {
+  const { visitor } = props
+  console.log('visitor:', visitor)
   const classes = useStyles()
 
   return (
@@ -66,6 +69,14 @@ const CalendarContainer = () => {
       </Box>
     </Box>
   )
+}
+
+CalendarContainer.propTypes = {
+  visitor: PropTypes.number,
+}
+
+CalendarContainer.defaultProps = {
+  visitor: -1,
 }
 
 export default CalendarContainer

@@ -10,6 +10,8 @@ import Notice from '../src/components/Notice'
 import Account from '../src/components/Account'
 import Footer from '../src/components/Footer'
 
+import { useRouter } from 'next/router'
+
 const useStyles = makeStyles(() => ({
   root: {
     padding: 0,
@@ -21,11 +23,15 @@ const useStyles = makeStyles(() => ({
 
 export default function Index() {
   const classes = useStyles()
+  const router = useRouter()
+
+  const { visitor } = router.query
+
   return (
     <Container className={classes.root} maxWidth="xs">
       <Intro />
       <Greeting />
-      <Calendar />
+      <Calendar visitor={visitor} />
       <Gallery />
       <Map />
       <Notice />
