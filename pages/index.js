@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Intro from '../src/components/Intro'
@@ -10,7 +10,7 @@ import Notice from '../src/components/Notice'
 import Account from '../src/components/Account'
 import Footer from '../src/components/Footer'
 
-import { useRouter } from 'next/router'
+import weddingInfo from '../src/static/wedding'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,17 +21,14 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function Index() {
+function Index({ sessionInfo }) {
   const classes = useStyles()
-  const router = useRouter()
-
-  const { visitor } = router.query
 
   return (
     <Container className={classes.root} maxWidth="xs">
       <Intro />
       <Greeting />
-      <Calendar visitor={visitor} />
+      <Calendar sessionInfo={sessionInfo} />
       <Gallery />
       <Map />
       <Notice />
@@ -40,3 +37,28 @@ export default function Index() {
     </Container>
   )
 }
+
+export const getServerSideProps = async ({ query }) => {
+  console.log('[Index] getServerSideProps')
+  const visitor = parseInt(query.visitor)
+  let sessionInfo = weddingInfo.sessions[0]
+
+  switch (visitor) {
+    case 0: // 가족,친지
+      console.log('family')
+      sessionInfo = weddingInfo.sessions[0]
+      break
+    case 1: // 친구,동료
+      console.log('friend')
+      sessionInfo = weddingInfo.sessions[1]
+      break
+    default:
+      console.log('do something?')
+  }
+
+  return {
+    props: { sessionInfo },
+  }
+}
+
+export default Index

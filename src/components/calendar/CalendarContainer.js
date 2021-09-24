@@ -37,22 +37,23 @@ const getSuffix = (date) => {
   return suffix
 }
 
-const CalendarContainer = (props) => {
-  const { visitor } = props
-  console.log('visitor:', visitor)
+const CalendarContainer = ({ sessionInfo }) => {
+  console.log('[CalendarContainer] sessionInfo:', sessionInfo)
   const classes = useStyles()
 
   return (
     <Box className={classes.root}>
       <Box className={classes.title}>
         <Typography variant="h5" color="textSecondary">
-          {format(parseISO(weddingInfo.date), 'MMM do', { locale: ko })}
+          {format(parseISO(sessionInfo.startTime), 'MMM do', { locale: ko })}
         </Typography>
         <Typography variant="body2" color="textSecondary">
-          {format(parseISO(weddingInfo.date), 'EEEE B h시', { locale: ko })}
+          {format(parseISO(sessionInfo.startTime), 'EEEE B h시', {
+            locale: ko,
+          })}
         </Typography>
       </Box>
-      <CalendarContext date={parseISO(weddingInfo.date)} />
+      <CalendarContext date={parseISO(sessionInfo.startTime)} />
       <Box className={classes.dday}>
         <Typography variant="body2">
           {weddingInfo.groom.firstName}
@@ -61,10 +62,10 @@ const CalendarContainer = (props) => {
           {`의 결혼식이`}
           &nbsp;
           <span className={classes.highlight}>
-            {getDday(parseISO(weddingInfo.date))}
+            {getDday(parseISO(sessionInfo.startTime))}
           </span>
           &nbsp;
-          {getSuffix(parseISO(weddingInfo.date))}
+          {getSuffix(parseISO(sessionInfo.startTime))}
         </Typography>
       </Box>
     </Box>
@@ -72,11 +73,11 @@ const CalendarContainer = (props) => {
 }
 
 CalendarContainer.propTypes = {
-  visitor: PropTypes.number,
+  sessionInfo: PropTypes.object,
 }
 
-CalendarContainer.defaultProps = {
-  visitor: -1,
-}
+// CalendarContainer.defaultProps = {
+//   sessionInfo: {},
+// }
 
 export default CalendarContainer
