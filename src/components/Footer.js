@@ -130,7 +130,10 @@ export default function Footer({ weddingInfo }) {
       </Box>
       <Box style={{ marginTop: 12 }} onClick={handleCopyright}>
         <Typography variant="caption" className={classes.copyright}>
-          {`© 김병주 2021`}
+          {'© '}
+          {`김병주`}
+          &nbsp;
+          {new Date().getFullYear()}
         </Typography>
       </Box>
     </Box>
