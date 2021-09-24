@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { parseISO, format } from 'date-fns'
-import weddingInfo from '../../../data/wedding'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function GreetingContainer() {
+export default function GreetingContainer({ weddingInfo }) {
   const classes = useStyles()
 
   // const handleClick = (item) => {

@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import ImageCard from './ImageCard'
-import photos from '../../data/photos'
+// import photos from '../../data/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
 import * as gtag from '../lib/gtag'
 
@@ -48,21 +48,7 @@ const isBottom = (el) => {
   return el.getBoundingClientRect().bottom <= window.innerHeight
 }
 
-const handleScroll = () => {
-  const el = document.getElementById('gallery')
-  if (isBottom(el)) {
-    window.removeEventListener('scroll', handleScroll)
-    gtag.event({
-      action: 'view_item',
-      category: 'gallery',
-      value: photos[0].title,
-      index: 0,
-      non_interaction: true,
-    })
-  }
-}
-
-export default function Gallery() {
+export default function Gallery({ photos }) {
   const classes = useStyles()
   const containerRef = createRef()
 
@@ -74,6 +60,20 @@ export default function Gallery() {
       value: photos[index].title,
       index: index,
     })
+  }
+
+  const handleScroll = () => {
+    const el = document.getElementById('gallery')
+    if (isBottom(el)) {
+      window.removeEventListener('scroll', handleScroll)
+      gtag.event({
+        action: 'view_item',
+        category: 'gallery',
+        value: photos[0].title,
+        index: 0,
+        non_interaction: true,
+      })
+    }
   }
 
   const settings = {

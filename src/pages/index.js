@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Intro from '../components/Intro'
@@ -11,6 +11,7 @@ import Account from '../components/Account'
 import Footer from '../components/Footer'
 
 import weddingInfo from '../../data/wedding'
+import photos from '../../data/photos'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,43 +22,44 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-function Index({ sessionInfo }) {
+function Index({ weddingInfo, sessionInfo }) {
   const classes = useStyles()
 
   return (
     <Container className={classes.root} maxWidth="xs">
-      <Intro />
-      <Greeting />
-      <Calendar sessionInfo={sessionInfo} />
-      <Gallery />
-      <Map />
+      <Intro weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+      <Greeting weddingInfo={weddingInfo} />
+      <Calendar weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+      <Gallery photos={photos} />
+      <Map weddingInfo={weddingInfo} />
       <Notice />
       <Account />
-      <Footer />
+      <Footer weddingInfo={weddingInfo} />
     </Container>
   )
 }
 
 export const getServerSideProps = async ({ query }) => {
-  console.log('[Index] getServerSideProps')
-  const visitor = parseInt(query.visitor)
-  let sessionInfo = weddingInfo.sessions[0]
+  console.log('[Index] getServerSideProps:', query)
+  const { visitor } = query
+  let sessionInfo = {}
 
   switch (visitor) {
-    case 0: // 가족,친지
-      console.log('family')
+    case 'family': // 가족,친지
+      console.log('invite to first session')
       sessionInfo = weddingInfo.sessions[0]
       break
-    case 1: // 친구,동료
-      console.log('friend')
+    case 'friend': // 친구,동료
+      console.log('invite to second session')
       sessionInfo = weddingInfo.sessions[1]
       break
     default:
       console.log('do something?')
+      sessionInfo = weddingInfo.sessions[1]
   }
 
   return {
-    props: { sessionInfo },
+    props: { weddingInfo, sessionInfo, photos },
   }
 }
 

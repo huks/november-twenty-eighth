@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import CalendarContext from './CalendarContext'
-import weddingInfo from '../../../data/wedding'
 import { parseISO, format, formatDistanceToNowStrict, isAfter } from 'date-fns'
 import ko from 'date-fns/locale/ko'
 import PropTypes from 'prop-types'
@@ -37,7 +36,7 @@ const getSuffix = (date) => {
   return suffix
 }
 
-const CalendarContainer = ({ sessionInfo }) => {
+const CalendarContainer = ({ weddingInfo, sessionInfo }) => {
   console.log('[CalendarContainer] sessionInfo:', sessionInfo)
   const classes = useStyles()
 

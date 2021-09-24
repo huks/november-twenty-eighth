@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { kakaoConfig } from '../config'
 import kakao from '../lib/kakao'
-import weddingInfo from '../../data/wedding'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
 import * as gtag from '../lib/gtag'
@@ -51,7 +50,7 @@ const handleScroll = () => {
   }
 }
 
-export default function Footer() {
+export default function Footer({ weddingInfo }) {
   const classes = useStyles()
 
   useEffect(() => {

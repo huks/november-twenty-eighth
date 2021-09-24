@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import KakaoMap from './KakaoMap'
-import weddingInfo from '../../../data/wedding'
 import * as gtag from '../../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const MapContainer = () => {
+const MapContainer = ({ weddingInfo }) => {
   const classes = useStyles()
 
   const handleLinkMap = () => {
