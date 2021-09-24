@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import * as gtag from '../../lib/gtag'
+import * as gtag from '../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {

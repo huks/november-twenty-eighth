@@ -2,8 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import KakaoMap from './KakaoMap'
-import weddingInfo from '../../static/wedding'
-import * as gtag from '../../../lib/gtag'
+import weddingInfo from '../../../data/wedding'
+import * as gtag from '../../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {

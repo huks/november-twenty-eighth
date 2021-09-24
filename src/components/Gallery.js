@@ -3,9 +3,9 @@ import Slider from 'react-slick'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import ImageCard from './ImageCard'
-import photos from '../static/photos'
+import photos from '../../data/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
-import * as gtag from '../../lib/gtag'
+import * as gtag from '../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {

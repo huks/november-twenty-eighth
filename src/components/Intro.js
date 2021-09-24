@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
-import weddingInfo from '../static/wedding'
+import weddingInfo from '../../data/wedding'
 
 const useStyles = makeStyles(() => ({
   root: {

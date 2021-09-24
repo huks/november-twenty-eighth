@@ -1,4 +1,4 @@
-import { kakaoConfig } from '../src/config'
+import { kakaoConfig } from '../config'
 
 class Kakao {
   constructor() {

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Intro from '../src/components/Intro'
-import Greeting from '../src/components/greeting/GreetingContainer'
-import Calendar from '../src/components/calendar/CalendarContainer'
-import Gallery from '../src/components/Gallery'
-import Map from '../src/components/map/MapContainer'
-import Notice from '../src/components/Notice'
-import Account from '../src/components/Account'
-import Footer from '../src/components/Footer'
+import Intro from '../components/Intro'
+import Greeting from '../components/greeting/GreetingContainer'
+import Calendar from '../components/calendar/CalendarContainer'
+import Gallery from '../components/Gallery'
+import Map from '../components/map/MapContainer'
+import Notice from '../components/Notice'
+import Account from '../components/Account'
+import Footer from '../components/Footer'
 
-import weddingInfo from '../src/static/wedding'
+import weddingInfo from '../../data/wedding'
 
 const useStyles = makeStyles(() => ({
   root: {
