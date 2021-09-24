@@ -30,14 +30,8 @@ export default function MyApp(props) {
   }, [])
 
   React.useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+    gtag.pageview(router.asPath)
+  }, [router])
 
   return (
     <React.Fragment>
