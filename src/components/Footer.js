@@ -50,8 +50,15 @@ const handleScroll = () => {
   }
 }
 
-export default function Footer({ weddingInfo }) {
+export default function Footer({ weddingInfo, query }) {
   const classes = useStyles()
+
+  console.log('[Footer] query:', query)
+
+  const getSiteUrl = () => {
+    const { visitor } = query
+    return `${kakaoConfig.siteDomain}/?visitor=${visitor}`
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -66,7 +73,7 @@ export default function Footer({ weddingInfo }) {
       action: 'share',
       category: 'footer',
       label: 'kakao_link',
-      value: kakaoConfig.siteDomain,
+      value: getSiteUrl(),
     })
     kakao.sendLink({
       objectType: 'feed',
@@ -77,16 +84,16 @@ export default function Footer({ weddingInfo }) {
         })}\n${weddingInfo.place.name}`,
         imageUrl: weddingInfo.kakaoImageUrl,
         link: {
-          mobileWebUrl: kakaoConfig.siteDomain,
-          webUrl: kakaoConfig.siteDomain,
+          mobileWebUrl: getSiteUrl(),
+          webUrl: getSiteUrl(),
         },
       },
       buttons: [
         {
           title: '모바일 청첩장 보기',
           link: {
-            mobileWebUrl: kakaoConfig.siteDomain,
-            webUrl: kakaoConfig.siteDomain,
+            mobileWebUrl: getSiteUrl(),
+            webUrl: getSiteUrl(),
           },
         },
       ],
@@ -94,7 +101,7 @@ export default function Footer({ weddingInfo }) {
   }
 
   const handleUrlCopy = () => {
-    const url = kakaoConfig.siteDomain
+    const url = getSiteUrl()
     navigator.clipboard.writeText(url).then(() => {
       alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
@@ -102,7 +109,7 @@ export default function Footer({ weddingInfo }) {
       action: 'copy_content',
       category: 'footer',
       label: 'site_url',
-      value: kakaoConfig.siteDomain,
+      value: getSiteUrl(),
     })
   }
 
