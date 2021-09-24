@@ -50,14 +50,11 @@ const handleScroll = () => {
   }
 }
 
-export default function Footer({ weddingInfo, query }) {
+export default function Footer({ weddingInfo, sessionInfo }) {
   const classes = useStyles()
 
-  console.log('[Footer] query:', query)
-
   const getSiteUrl = () => {
-    const { visitor } = query
-    return `${kakaoConfig.siteDomain}/?visitor=${visitor}`
+    return `${kakaoConfig.siteDomain}/?visitor=${sessionInfo.visitor}`
   }
 
   useEffect(() => {
@@ -79,9 +76,9 @@ export default function Footer({ weddingInfo, query }) {
       objectType: 'feed',
       content: {
         title: `${weddingInfo.groom.name} ♥ ${weddingInfo.bride.name} 결혼합니다.`,
-        description: `${format(parseISO(weddingInfo.date), 'EEEE B h시', {
+        description: `${format(parseISO(sessionInfo.startTime), 'EEEE B h시', {
           locale: ko,
-        })}\n${weddingInfo.place.name}`,
+        })} (${sessionInfo.description})\n${weddingInfo.place.name}`,
         imageUrl: weddingInfo.kakaoImageUrl,
         link: {
           mobileWebUrl: getSiteUrl(),

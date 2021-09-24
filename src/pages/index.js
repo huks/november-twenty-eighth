@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-function Index({ weddingInfo, sessionInfo, photos, query }) {
+function Index({ weddingInfo, sessionInfo, photos }) {
   const classes = useStyles()
 
   return (
@@ -34,7 +34,7 @@ function Index({ weddingInfo, sessionInfo, photos, query }) {
       <Map weddingInfo={weddingInfo} />
       <Notice />
       <Account />
-      <Footer weddingInfo={weddingInfo} query={query} />
+      <Footer weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
     </Container>
   )
 }
@@ -59,7 +59,7 @@ export const getServerSideProps = async ({ query }) => {
   }
 
   return {
-    props: { weddingInfo, sessionInfo, photos, query },
+    props: { weddingInfo, sessionInfo, photos },
   }
 }
 
