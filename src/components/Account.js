@@ -149,7 +149,7 @@ export default function Account() {
             <Box className={classes.box1}>
               <Box className={classes.box2}>
                 <Typography className={classes.text}>
-                  우리은행 1002-25-1007485
+                  우리은행 1002-251-007485
                 </Typography>
                 <Typography className={classes.text}>원빛나</Typography>
               </Box>
