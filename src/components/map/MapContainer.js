@@ -2,9 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import KakaoMap from './KakaoMap'
-import weddingInfo from '../../static/wedding'
+import * as gtag from '../../lib/gtag'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '4rem 0',
   },
@@ -14,19 +14,43 @@ const useStyles = makeStyles(() => ({
   location: {
     margin: '40px 0 20px',
   },
+  linkMap: {
+    background: '#d99a88',
+    padding: '4px 20px',
+    cursor: 'pointer',
+  },
+  linkMapText: {
+    fontFamily: 'Pretendard-Regular',
+    fontSize: theme.typography.pxToRem(15),
+    lineHeight: '2rem',
+    color: '#fff',
+  },
   waytocome: {
     padding: '0 2rem',
     textAlign: 'left',
     lineHeight: '2rem',
   },
-  box: {
+  waytocomeContent: {
     marginTop: 20,
     lineHeight: '2rem',
   },
 }))
 
-const MapContainer = () => {
+const MapContainer = ({ weddingInfo }) => {
   const classes = useStyles()
+
+  const handleLinkMap = () => {
+    gtag.event({
+      action: 'select_content',
+      category: 'map',
+      label: 'kakao_map_link',
+      value: weddingInfo.place.kakaoPlaceId,
+    })
+    window.open(
+      `https://map.kakao.com/link/map/${weddingInfo.place.kakaoPlaceId}`,
+      '_blank'
+    )
+  }
 
   return (
     <Box className={classes.root}>
@@ -48,8 +72,13 @@ const MapContainer = () => {
         latitude={weddingInfo.place.coords.latitude}
         longitude={weddingInfo.place.coords.longitude}
       />
+      <Box className={classes.linkMap} onClick={handleLinkMap} href="/dd">
+        <Typography className={classes.linkMapText}>
+          지도를 자세히 보려면 여기를 눌러주세요
+        </Typography>
+      </Box>
       <Box className={classes.waytocome}>
-        <Box className={classes.box}>
+        <Box className={classes.waytocomeContent}>
           <Typography variant="body1" color="textSecondary">
             지하철이용시
           </Typography>
@@ -62,7 +91,7 @@ const MapContainer = () => {
             {` - 학여울역 1번 출구에서 도보 927m`}
           </Typography>
         </Box>
-        <Box className={classes.box}>
+        <Box className={classes.waytocomeContent}>
           <Typography variant="body1" color="textSecondary">
             버스이용시
           </Typography>
@@ -79,7 +108,7 @@ const MapContainer = () => {
             {`401, 4318, 4319, 4419, 11-3, 917, 500-2, 9407, 9507, 9607`}
           </Typography>
         </Box>
-        <Box className={classes.box}>
+        <Box className={classes.waytocomeContent}>
           <Typography variant="body1" color="textSecondary">
             자가용이용시
           </Typography>

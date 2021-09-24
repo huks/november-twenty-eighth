@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from '../src/theme'
+import theme from '../theme'
 
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
@@ -13,7 +13,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import './slick-override.css'
 // import 'react-calendar/dist/Calendar.css'
-import '../src/components/calendar/Calendar.css'
+import '../components/calendar/Calendar.css'
 
 export default function MyApp(props) {
   const { Component, pageProps } = props
@@ -30,14 +30,8 @@ export default function MyApp(props) {
   }, [])
 
   React.useEffect(() => {
-    const handleRouteChange = (url) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+    gtag.pageview(router.asPath)
+  }, [router])
 
   return (
     <React.Fragment>

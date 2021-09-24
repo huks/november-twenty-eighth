@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
-import weddingInfo from '../static/wedding'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -34,7 +33,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function Intro() {
+export default function Intro({ weddingInfo, sessionInfo }) {
   const classes = useStyles()
 
   return (
@@ -63,7 +62,9 @@ export default function Intro() {
       </Box>
       <Box className={classes.datePlace}>
         <Typography variant="body1">
-          {format(parseISO(weddingInfo.date), 'PPPP B h시', { locale: ko })}
+          {format(parseISO(sessionInfo.startTime), 'PPPP B h시', {
+            locale: ko,
+          })}
         </Typography>
         <Typography variant="body1">{weddingInfo.place.name}</Typography>
       </Box>

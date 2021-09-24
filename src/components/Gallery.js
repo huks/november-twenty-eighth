@@ -3,9 +3,9 @@ import Slider from 'react-slick'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import ImageCard from './ImageCard'
-import photos from '../static/photos'
+// import photos from '../../data/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
-import * as gtag from '../../lib/gtag'
+import * as gtag from '../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +44,11 @@ const touchStart = (e) => {
   firstClientX = e.touches[0].clientX
 }
 
-export default function Gallery() {
+const isBottom = (el) => {
+  return el.getBoundingClientRect().bottom <= window.innerHeight
+}
+
+export default function Gallery({ photos }) {
   const classes = useStyles()
   const containerRef = createRef()
 
@@ -52,30 +56,35 @@ export default function Gallery() {
     // console.log('onSlideChange:', index)
     gtag.event({
       action: 'view_item',
-      category: 'engagement',
-      value: index,
+      category: 'gallery',
+      value: photos[index].title,
       index: index,
     })
   }
 
+  const handleScroll = () => {
+    const el = document.getElementById('gallery')
+    if (isBottom(el)) {
+      window.removeEventListener('scroll', handleScroll)
+      gtag.event({
+        action: 'view_item',
+        category: 'gallery',
+        value: photos[0].title,
+        index: 0,
+        non_interaction: true,
+      })
+    }
+  }
+
   const settings = {
     dots: true,
-    lazyLoad: true,
+    lazyLoad: 'progressive',
     infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (current) => onSlideChange(current),
   }
-
-  useEffect(() => {
-    gtag.event({
-      action: 'view_item',
-      category: 'engagement',
-      value: 0,
-      index: 0,
-    })
-  })
 
   useEffect(() => {
     if (containerRef.current) {
@@ -95,6 +104,14 @@ export default function Gallery() {
     }
   })
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
+
   return (
     <Box className={classes.root} id="gallery">
       <Box className={classes.title}>
@@ -107,9 +124,9 @@ export default function Gallery() {
       </Box>
       <Box ref={containerRef}>
         <Slider {...settings}>
-          <ImageCard photo={photos[0]} checked={false} />
-          <ImageCard photo={photos[1]} checked={false} />
-          <ImageCard photo={photos[2]} checked={false} />
+          {photos.map((photo) => (
+            <ImageCard key={photo} photo={photo} checked={false} />
+          ))}
         </Slider>
       </Box>
     </Box>

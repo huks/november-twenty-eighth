@@ -1,4 +1,4 @@
-import { kakaoConfig } from '../src/config'
+import { kakaoConfig } from '../config'
 
 class Kakao {
   constructor() {
@@ -24,18 +24,18 @@ class Kakao {
     document.head.appendChild(script)
 
     script.onload = () => {
-      console.log('Kakao JS SDK loaded')
+      // console.log('Kakao JS SDK loaded')
       window.Kakao.init(this.APP_KEY)
-      console.log(window.Kakao.isInitialized())
+      // console.log(window.Kakao.isInitialized())
     }
   }
 
   sendLink(...args) {
-    console.log('waitForSDKReady')
+    // console.log('waitForSDKReady')
     const interval = setInterval(() => {
       const isReady = window.Kakao?.isInitialized()
       if (isReady) {
-        console.log('send kakao link...')
+        // console.log('send kakao link...')
         window.Kakao.Link.sendDefault(...args)
         clearInterval(interval)
       }
@@ -47,11 +47,11 @@ class Kakao {
     //   console.log('do something?')
     // }
     // window.Kakao.Link.createDefaultButton(...args)
-    console.log('waitForSDKReady')
+    // console.log('waitForSDKReady')
     const interval = setInterval(() => {
       const isReady = window.Kakao?.isInitialized()
       if (isReady) {
-        console.log('create kakao link button...')
+        // console.log('create kakao link button...')
         window.Kakao.Link.createDefaultButton(...args)
         clearInterval(interval)
       }

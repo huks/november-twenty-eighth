@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import * as gtag from '../lib/gtag'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,6 +80,12 @@ export default function Account() {
     navigator.clipboard.writeText(val).then(() => {
       alert(`계좌번호(${val})가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
+    gtag.event({
+      action: 'copy_content',
+      category: 'account',
+      label: 'account_number',
+      value: type,
+    })
   }
 
   return (
@@ -142,7 +149,7 @@ export default function Account() {
             <Box className={classes.box1}>
               <Box className={classes.box2}>
                 <Typography className={classes.text}>
-                  우리은행 1002-25-1007485
+                  우리은행 1002-251-007485
                 </Typography>
                 <Typography className={classes.text}>원빛나</Typography>
               </Box>

@@ -2,11 +2,10 @@ import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { kakaoConfig } from '../config'
-import kakao from '../../lib/kakao'
-import weddingInfo from '../static/wedding'
+import kakao from '../lib/kakao'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
-import * as gtag from '../../lib/gtag'
+import * as gtag from '../lib/gtag'
 import ShareIcon from '@material-ui/icons/Share'
 import LinkIcon from '@material-ui/icons/Link'
 
@@ -51,7 +50,7 @@ const handleScroll = () => {
   }
 }
 
-export default function Footer() {
+export default function Footer({ weddingInfo }) {
   const classes = useStyles()
 
   useEffect(() => {
@@ -63,6 +62,12 @@ export default function Footer() {
   })
 
   const handleKakaoLink = () => {
+    gtag.event({
+      action: 'share',
+      category: 'footer',
+      label: 'kakao_link',
+      value: kakaoConfig.siteDomain,
+    })
     kakao.sendLink({
       objectType: 'feed',
       content: {
@@ -93,6 +98,20 @@ export default function Footer() {
     navigator.clipboard.writeText(url).then(() => {
       alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
+    gtag.event({
+      action: 'copy_content',
+      category: 'footer',
+      label: 'site_url',
+      value: kakaoConfig.siteDomain,
+    })
+  }
+
+  const handleCopyright = () => {
+    gtag.event({
+      action: 'select_content',
+      category: 'footer',
+      label: 'copyright',
+    })
   }
 
   return (
@@ -109,9 +128,9 @@ export default function Footer() {
           청첩장 주소 복사하기
         </Typography>
       </Box>
-      <Box style={{ marginTop: 12 }}>
+      <Box style={{ marginTop: 12 }} onClick={handleCopyright}>
         <Typography variant="caption" className={classes.copyright}>
-          Copyright 2021. All rights reserved.
+          {`© 김병주 2021`}
         </Typography>
       </Box>
     </Box>

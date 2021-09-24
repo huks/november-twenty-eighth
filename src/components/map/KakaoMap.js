@@ -25,7 +25,7 @@ export default function KakaoMap(props) {
 
     script.onload = () => {
       window.kakao.maps.load(() => {
-        console.log('Kakao map loaded')
+        // console.log('Kakao map loaded')
         const container = document.getElementById('kakao-map')
         const options = {
           center: new kakao.maps.LatLng(latitude, longitude),

@@ -26,7 +26,7 @@ export default function CalendarContext(props) {
         calendarType="US"
         formatDay={(locale, date) => format(date, 'd')}
         formatShortWeekday={(locale, date) => format(date, 'EEEEE')}
-        locale="ko-KR"
+        locale="en-US"
         showNavigation={false}
       />
     </div>
