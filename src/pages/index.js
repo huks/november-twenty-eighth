@@ -29,10 +29,10 @@ function Index({ weddingInfo, sessionInfo, photos }) {
     <Container className={classes.root} maxWidth="xs">
       <Intro weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
       <Greeting weddingInfo={weddingInfo} />
+      <Notice weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
       <Calendar weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
       <Gallery photos={photos} />
       <Map weddingInfo={weddingInfo} />
-      <Notice />
       <Account />
       <Footer weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
     </Container>
