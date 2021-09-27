@@ -124,8 +124,8 @@ export default function Gallery({ photos }) {
       </Box>
       <Box ref={containerRef}>
         <Slider {...settings}>
-          {photos.map((photo) => (
-            <ImageCard key={photo} photo={photo} checked={false} />
+          {photos.map((imageProps) => (
+            <ImageCard key={imageProps.src} {...imageProps} checked={false} />
           ))}
         </Slider>
       </Box>

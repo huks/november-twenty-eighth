@@ -8,12 +8,14 @@
     "clsx": "latest",
     "date-fns": "^2.23.0",
     "next": "latest",
+    "plaiceholder": "^2.0.1",
     "prop-types": "latest",
     "react": "latest",
     "react-calendar": "^3.4.0",
     "react-dom": "latest",
     "react-ga": "^3.3.0",
     "react-slick": "^0.28.1",
+    "sharp": "^0.29.1",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

@@ -2,16 +2,14 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
-import { Collapse } from '@material-ui/core'
+import Image from 'next/image'
 
 const useStyles = makeStyles({
   root: {
     // maxWidth: 645,
     background: 'rgba(0,0,0,0.5)',
     // margin: '20px',
+    display: 'block',
   },
   media: {
     // height: 468,
@@ -37,45 +35,22 @@ const useStyles = makeStyles({
   },
 })
 
-export default function ImageCard({ photo, checked }) {
+export default function ImageCard(imageProps) {
   const classes = useStyles()
 
-  const handleImageLoad = (imageUrl) => {
-    // console.log('handleImageLoad:', imageUrl)
-  }
-
   return (
-    // <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
     <Card className={classes.root} square={true}>
-      <img
-        src={photo.imageUrl}
-        className={classes.img}
-        onLoad={() => handleImageLoad(photo.imageUrl)}
-      ></img>
-      {/* <CardMedia
-        component="img"
-        className={classes.media}
-        image={photo.imageUrl}
-      /> */}
-      {/* <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="h1"
-          className={classes.title}
-        >
-          {photo.title}
-        </Typography>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-          className={classes.desc}
-        >
-          {photo.description}
-        </Typography>
-      </CardContent> */}
+      <Image
+        src={imageProps.src}
+        alt={imageProps.alt}
+        layout="responsive"
+        width="444"
+        height="468"
+        objectFit="cover"
+        objectPosition="bottom"
+        placeholder="blur"
+        blurDataURL={imageProps.blurDataURL}
+      />
     </Card>
-    // </Collapse>
   )
 }

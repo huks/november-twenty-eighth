@@ -11,7 +11,8 @@ import Account from '../components/Account'
 import Footer from '../components/Footer'
 
 import weddingInfo from '../../data/wedding'
-import photos from '../../data/photos'
+import { default as getPhotos } from '../../data/photos'
+import { getPlaiceholder } from 'plaiceholder'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -57,6 +58,19 @@ export const getServerSideProps = async ({ query }) => {
       console.log('do something?')
       sessionInfo = weddingInfo.sessions[1]
   }
+
+  const photos = await Promise.all(
+    getPhotos.map(async (src) => {
+      const { base64, img } = await getPlaiceholder(src.imageUrl)
+
+      return {
+        ...img,
+        alt: src.title,
+        title: src.title,
+        blurDataURL: base64,
+      }
+    })
+  ).then((values) => values)
 
   return {
     props: { weddingInfo, sessionInfo, photos },
