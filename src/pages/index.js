@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Intro from '../components/Intro'
@@ -14,6 +14,8 @@ import weddingInfo from '../../data/wedding'
 import { default as getPhotos } from '../../data/photos'
 import { getPlaiceholder } from 'plaiceholder'
 
+import { useRouter } from 'next/router'
+
 const useStyles = makeStyles(() => ({
   root: {
     padding: 0,
@@ -23,8 +25,27 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-function Index({ weddingInfo, sessionInfo, photos }) {
+function Index({ weddingInfo, photos }) {
   const classes = useStyles()
+  const router = useRouter()
+
+  const [sessionInfo, setSessionInfo] = useState(weddingInfo.sessions[1])
+
+  useEffect(() => {
+    const { visitor } = router.query
+    switch (visitor) {
+      case 'family': // 가족,친지
+        console.log('invite to first session')
+        setSessionInfo(weddingInfo.sessions[0])
+        break
+      case 'friend': // 친구,동료
+        console.log('invite to second session')
+        setSessionInfo(weddingInfo.sessions[1])
+        break
+      default:
+        console.log('do something?')
+    }
+  }, [router, weddingInfo])
 
   return (
     <Container className={classes.root} maxWidth="xs">
@@ -40,24 +61,22 @@ function Index({ weddingInfo, sessionInfo, photos }) {
   )
 }
 
-export const getServerSideProps = async ({ query }) => {
-  console.log('[Index] getServerSideProps:', query)
-  const { visitor } = query
-  let sessionInfo = {}
+export const getStaticProps = async () => {
+  console.log('[Index] getStaticProps')
 
-  switch (visitor) {
-    case 'family': // 가족,친지
-      console.log('invite to first session')
-      sessionInfo = weddingInfo.sessions[0]
-      break
-    case 'friend': // 친구,동료
-      console.log('invite to second session')
-      sessionInfo = weddingInfo.sessions[1]
-      break
-    default:
-      console.log('do something?')
-      sessionInfo = weddingInfo.sessions[1]
-  }
+  // switch (visitor) {
+  //   case 'family': // 가족,친지
+  //     console.log('invite to first session')
+  //     sessionInfo = weddingInfo.sessions[0]
+  //     break
+  //   case 'friend': // 친구,동료
+  //     console.log('invite to second session')
+  //     sessionInfo = weddingInfo.sessions[1]
+  //     break
+  //   default:
+  //     console.log('do something?')
+  //     sessionInfo = weddingInfo.sessions[1]
+  // }
 
   const photos = await Promise.all(
     getPhotos.map(async (src) => {
@@ -73,7 +92,7 @@ export const getServerSideProps = async ({ query }) => {
   ).then((values) => values)
 
   return {
-    props: { weddingInfo, sessionInfo, photos },
+    props: { weddingInfo, photos },
   }
 }
 
