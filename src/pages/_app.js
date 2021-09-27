@@ -31,7 +31,7 @@ export default function MyApp(props) {
 
   React.useEffect(() => {
     gtag.pageview(router.asPath)
-  }, [router])
+  }, [router.asPath])
 
   return (
     <React.Fragment>

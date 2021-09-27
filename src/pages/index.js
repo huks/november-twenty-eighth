@@ -29,7 +29,7 @@ function Index({ weddingInfo, photos }) {
   const classes = useStyles()
   const router = useRouter()
 
-  const [sessionInfo, setSessionInfo] = useState(weddingInfo.sessions[1])
+  const [sessionInfo, setSessionInfo] = useState(null)
 
   useEffect(() => {
     const { visitor } = router.query
@@ -43,20 +43,27 @@ function Index({ weddingInfo, photos }) {
         setSessionInfo(weddingInfo.sessions[1])
         break
       default:
-        console.log('do something?')
+        console.log('do something?', visitor)
+        setSessionInfo(weddingInfo.sessions[1])
     }
-  }, [router, weddingInfo])
+  }, [router.query, weddingInfo])
 
   return (
     <Container className={classes.root} maxWidth="xs">
-      <Intro weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
-      <Greeting weddingInfo={weddingInfo} />
-      <Notice weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
-      <Calendar weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
-      <Gallery photos={photos} />
-      <Map weddingInfo={weddingInfo} />
-      <Account />
-      <Footer weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+      {sessionInfo ? (
+        <>
+          <Intro weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+          <Greeting weddingInfo={weddingInfo} />
+          <Notice weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+          <Calendar weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+          <Gallery photos={photos} />
+          <Map weddingInfo={weddingInfo} />
+          <Account />
+          <Footer weddingInfo={weddingInfo} sessionInfo={sessionInfo} />
+        </>
+      ) : (
+        <></>
+      )}
     </Container>
   )
 }

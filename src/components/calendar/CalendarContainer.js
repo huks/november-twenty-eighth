@@ -37,7 +37,6 @@ const getSuffix = (date) => {
 }
 
 const CalendarContainer = ({ weddingInfo, sessionInfo }) => {
-  console.log('[CalendarContainer] sessionInfo:', sessionInfo)
   const classes = useStyles()
 
   return (
