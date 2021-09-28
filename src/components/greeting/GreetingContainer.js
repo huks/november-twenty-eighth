@@ -54,15 +54,15 @@ export default function GreetingContainer({ weddingInfo }) {
       <Box
         style={{
           background: 'rgba(140,117,93,.07)',
-          position: 'relative',
-          width: 444,
-          height: 468,
+          display: 'block',
         }}
       >
         <Image
           src={weddingInfo.secondaryImageUrl}
           alt=""
-          layout="fill"
+          layout="responsive"
+          width={444}
+          height={468}
           objectFit="cover"
           objectPosition="bottom"
           placeholder="empty"
