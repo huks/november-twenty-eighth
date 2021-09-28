@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import KakaoMap from './KakaoMap'
 import * as gtag from '../../lib/gtag'
+import gtm from '../../lib/gtm'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,7 @@ const MapContainer = ({ weddingInfo }) => {
   const classes = useStyles()
 
   const handleLinkMap = () => {
-    gtag.event({
+    gtm.event({
       action: 'select_content',
       category: 'map',
       label: 'kakao_map_link',

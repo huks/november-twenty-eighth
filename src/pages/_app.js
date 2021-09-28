@@ -8,6 +8,7 @@ import theme from '../theme'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
 import kakao from '../lib/kakao'
+import gtm from '../lib/gtm'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -27,10 +28,12 @@ export default function MyApp(props) {
     }
     // Initialize Kakao JS SDK
     kakao.initialize()
+    // Initialize GTM
+    gtm.initialize()
   }, [])
 
   React.useEffect(() => {
-    gtag.pageview(router.asPath)
+    gtm.pageview(router.asPath)
   }, [router.asPath])
 
   return (

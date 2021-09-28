@@ -6,6 +6,7 @@ import ImageCard from './ImageCard'
 // import photos from '../../data/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
 import * as gtag from '../lib/gtag'
+import gtm from '../lib/gtm'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,7 +55,7 @@ export default function Gallery({ photos }) {
 
   const onSlideChange = (index) => {
     // console.log('onSlideChange:', index)
-    gtag.event({
+    gtm.event({
       action: 'view_item',
       category: 'gallery',
       value: photos[index].title,
@@ -66,7 +67,7 @@ export default function Gallery({ photos }) {
     const el = document.getElementById('gallery')
     if (isBottom(el)) {
       window.removeEventListener('scroll', handleScroll)
-      gtag.event({
+      gtm.event({
         action: 'view_item',
         category: 'gallery',
         value: photos[0].title,

@@ -6,6 +6,7 @@ import kakao from '../lib/kakao'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
 import * as gtag from '../lib/gtag'
+import gtm from '../lib/gtm'
 import ShareIcon from '@material-ui/icons/Share'
 import LinkIcon from '@material-ui/icons/Link'
 
@@ -44,7 +45,7 @@ const handleScroll = () => {
   const el = document.getElementById('footer')
   if (isBottom(el)) {
     window.removeEventListener('scroll', handleScroll)
-    gtag.event({
+    gtm.event({
       action: 'view_end',
     })
   }
@@ -66,7 +67,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
   })
 
   const handleKakaoLink = () => {
-    gtag.event({
+    gtm.event({
       action: 'share',
       category: 'footer',
       label: 'kakao_link',
@@ -102,7 +103,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
     navigator.clipboard.writeText(url).then(() => {
       alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
-    gtag.event({
+    gtm.event({
       action: 'copy_content',
       category: 'footer',
       label: 'site_url',
@@ -111,7 +112,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
   }
 
   const handleCopyright = () => {
-    gtag.event({
+    gtm.event({
       action: 'select_content',
       category: 'footer',
       label: 'copyright',
