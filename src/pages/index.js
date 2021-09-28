@@ -10,7 +10,7 @@ import Notice from '../components/Notice'
 import Account from '../components/Account'
 import Footer from '../components/Footer'
 
-import weddingInfo from '../../data/wedding'
+import { default as getWeddingInfo } from '../../data/wedding'
 import { default as getPhotos } from '../../data/photos'
 import { getPlaiceholder } from 'plaiceholder'
 
@@ -70,21 +70,7 @@ function Index({ weddingInfo, photos }) {
 
 export const getStaticProps = async () => {
   console.log('[Index] getStaticProps')
-
-  // switch (visitor) {
-  //   case 'family': // 가족,친지
-  //     console.log('invite to first session')
-  //     sessionInfo = weddingInfo.sessions[0]
-  //     break
-  //   case 'friend': // 친구,동료
-  //     console.log('invite to second session')
-  //     sessionInfo = weddingInfo.sessions[1]
-  //     break
-  //   default:
-  //     console.log('do something?')
-  //     sessionInfo = weddingInfo.sessions[1]
-  // }
-
+  const weddingInfo = getWeddingInfo
   const photos = await Promise.all(
     getPhotos.map(async (src) => {
       const { base64, img } = await getPlaiceholder(src.imageUrl)

@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Box, Typography } from '@material-ui/core'
 import { parseISO, format } from 'date-fns'
 
+import Image from 'next/image'
+
 const useStyles = makeStyles(() => ({
   root: {
     margin: '1px 0',
@@ -25,10 +27,6 @@ const useStyles = makeStyles(() => ({
 
 export default function GreetingContainer({ weddingInfo }) {
   const classes = useStyles()
-
-  // const handleClick = (item) => {
-  //   console.log('handleClick:', item)
-  // }
 
   return (
     <Box className={classes.root} id="greeting-container">
@@ -53,8 +51,22 @@ export default function GreetingContainer({ weddingInfo }) {
         </Typography>
       </Box>
       {/* FIXME: remove padding bottom */}
-      <Box style={{ background: 'rgba(140,117,93,.07)' }}>
-        <img src={weddingInfo.secondaryImageUrl} className={classes.img}></img>
+      <Box
+        style={{
+          background: 'rgba(140,117,93,.07)',
+          position: 'relative',
+          width: 444,
+          height: 468,
+        }}
+      >
+        <Image
+          src={weddingInfo.secondaryImageUrl}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          objectPosition="bottom"
+          placeholder="empty"
+        />
       </Box>
       <Box style={{ padding: '1.2rem 0', background: 'rgba(140,117,93,.07)' }}>
         <Typography variant="h6" className={classes.text}>

@@ -4,6 +4,8 @@ import { Box, Typography } from '@material-ui/core'
 import { parseISO, format } from 'date-fns'
 import ko from 'date-fns/locale/ko'
 
+import Image from 'next/image'
+
 const useStyles = makeStyles(() => ({
   root: {
     // height: 946,
@@ -58,7 +60,16 @@ export default function Intro({ weddingInfo, sessionInfo }) {
         </Typography>
       </Box>
       <Box>
-        <img src={weddingInfo.imageUrl} className={classes.img}></img>
+        <Image
+          src={weddingInfo.imageUrl}
+          alt=""
+          layout="responsive"
+          width={444}
+          height={665}
+          objectFit="cover"
+          objectPosition="bottom"
+          placeholder="empty"
+        />
       </Box>
       <Box className={classes.datePlace}>
         <Typography variant="body1">
