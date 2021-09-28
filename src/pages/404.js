@@ -5,7 +5,7 @@ export default function Custom404() {
   const router = useRouter()
 
   useEffect(() => {
-    console.log('redirect to home...')
+    console.warn('redirect to home...')
     router.replace('/')
   })
 
