@@ -59,6 +59,8 @@ export default function Notice({ weddingInfo, sessionInfo }) {
             {`~`}
             &nbsp;
             {format(parseISO(weddingInfo.sessions[0].endTime), 'HH:mm')}
+            &nbsp;
+            {`(가족, 친지)`}
             <br />
             {weddingInfo.sessions[1].description}
             &nbsp;
@@ -69,6 +71,8 @@ export default function Notice({ weddingInfo, sessionInfo }) {
             {`~`}
             &nbsp;
             {format(parseISO(weddingInfo.sessions[1].endTime), 'HH:mm')}
+            &nbsp;
+            {`(친구, 동료)`}
           </Typography>
           <Typography variant="body2">{`* 축하 화환은 정중히 사양합니다. *`}</Typography>
         </CardContent>
