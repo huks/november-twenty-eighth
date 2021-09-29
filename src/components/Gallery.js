@@ -56,10 +56,10 @@ export default function Gallery({ photos }) {
   const onSlideChange = (index) => {
     // console.log('onSlideChange:', index)
     gtm.event({
-      action: 'view_item',
+      action: 'vue_item',
       category: 'gallery',
-      value: photos[index].title,
       index: index,
+      item_name: photos[index].title,
     })
   }
 
@@ -68,10 +68,10 @@ export default function Gallery({ photos }) {
     if (isBottom(el)) {
       window.removeEventListener('scroll', handleScroll)
       gtm.event({
-        action: 'view_item',
+        action: 'vue_item',
         category: 'gallery',
-        value: photos[0].title,
         index: 0,
+        item_name: photos[0].title,
         non_interaction: true,
       })
     }

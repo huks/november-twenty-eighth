@@ -46,7 +46,7 @@ const handleScroll = () => {
   if (isBottom(el)) {
     window.removeEventListener('scroll', handleScroll)
     gtm.event({
-      action: 'view_end',
+      action: 'scroll_end',
     })
   }
 }
@@ -104,7 +104,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
       alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
     gtm.event({
-      action: 'copy_content',
+      action: 'share',
       category: 'footer',
       label: 'site_url',
       value: getSiteUrl(),

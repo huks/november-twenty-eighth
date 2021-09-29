@@ -82,10 +82,10 @@ export default function Account() {
       alert(`계좌번호(${val})가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
     })
     gtm.event({
-      action: 'copy_content',
+      action: 'share',
       category: 'account',
       label: 'account_number',
-      value: type,
+      value: val,
     })
   }
 

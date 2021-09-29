@@ -84,12 +84,11 @@ class GTM {
     TagManager.dataLayer({ dataLayer })
   }
 
-  pageview(url) {
-    console.log(`[gtm] pageview ${url}`)
+  pageview(path) {
+    console.log(`[gtm] pageview ${path}`)
     this._pushDataLayer({
-      event: 'pageview',
-      eventLabel: url,
-      pagePath: url,
+      event: 'page_view',
+      page_path: path,
     })
   }
 
@@ -97,9 +96,9 @@ class GTM {
     console.log(`[gtm] event ${action}, ${category}, ${label}, ${value}`, args)
     this._pushDataLayer({
       event: action,
-      eventCategory: category,
-      eventLabel: label,
-      value: value,
+      event_category: category,
+      event_label: label,
+      event_value: value,
       ...args,
     })
   }
