@@ -1,32 +1,32 @@
 import TagManager from 'react-gtm-module'
 
 const gtmConfig = {
-  containerId: 'GTM-KMGL46M'
+  containerId: 'GTM-KMGL46M',
 }
 
 const warn = (...args) => {
   if (process.env.NODE_ENV !== 'development') {
-    return;
+    return
   }
 
-  console.warn(...args);
-};
+  console.warn(...args)
+}
 
 class GTM {
   constructor() {
-    this.CONTAINER_ID = null;
+    this.CONTAINER_ID = null
 
-    this.initialized = false;
+    this.initialized = false
   }
 
   configure(config) {
-    this.CONTAINER_ID = config.containerId;
+    this.CONTAINER_ID = config.containerId
   }
 
   initialize() {
     if (this.initialized) {
-      warn('GTM can only be initialized once.');
-      return;
+      warn('GTM can only be initialized once.')
+      return
     }
 
     // Maybe you want to load events from server side (in NextJS apps for example),
@@ -35,16 +35,16 @@ class GTM {
     // For the moment we do not implement it, but in future we might add it.
 
     if (!document) {
-      warn('GTM can be initialized only on client side.');
-      return;
+      warn('GTM can be initialized only on client side.')
+      return
     }
 
     if (!gtmConfig.containerId) {
-      warn('GTM requires a GTM ID to be loaded.');
-      return;
+      warn('GTM requires a GTM ID to be loaded.')
+      return
     }
 
-    this.configure(gtmConfig);
+    this.configure(gtmConfig)
 
     TagManager.initialize({ gtmId: this.CONTAINER_ID })
 
@@ -69,15 +69,15 @@ class GTM {
   // eslint-disable-next-line class-methods-use-this
   push(...args) {
     if (!window) {
-      warn('GTM push works only on client side.');
-      return;
+      warn('GTM push works only on client side.')
+      return
     }
 
     if (!window.dataLayer) {
-      window.dataLayer = [];
+      window.dataLayer = []
     }
 
-    window.dataLayer.push(...args);
+    window.dataLayer.push(...args)
   }
 
   _pushDataLayer(dataLayer) {
@@ -106,6 +106,6 @@ class GTM {
 }
 
 // Singleton
-const gtm = new GTM();
+const gtm = new GTM()
 
-export default gtm;
+export default gtm
