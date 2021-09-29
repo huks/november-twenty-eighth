@@ -6,6 +6,7 @@ import ImageCard from './ImageCard'
 // import photos from '../../data/photos'
 // import useWindowPosition from './hooks/useWindowPosition'
 import * as gtag from '../lib/gtag'
+import gtm from '../lib/gtm'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,11 +55,11 @@ export default function Gallery({ photos }) {
 
   const onSlideChange = (index) => {
     // console.log('onSlideChange:', index)
-    gtag.event({
-      action: 'view_item',
+    gtm.event({
+      action: 'vue_item',
       category: 'gallery',
-      value: photos[index].title,
       index: index,
+      item_name: photos[index].title,
     })
   }
 
@@ -66,11 +67,11 @@ export default function Gallery({ photos }) {
     const el = document.getElementById('gallery')
     if (isBottom(el)) {
       window.removeEventListener('scroll', handleScroll)
-      gtag.event({
-        action: 'view_item',
+      gtm.event({
+        action: 'vue_item',
         category: 'gallery',
-        value: photos[0].title,
         index: 0,
+        item_name: photos[0].title,
         non_interaction: true,
       })
     }
