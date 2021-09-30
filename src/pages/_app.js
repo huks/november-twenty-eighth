@@ -20,6 +20,8 @@ export default function MyApp(props) {
   const { Component, pageProps } = props
   const router = useRouter()
 
+  const title = process.env.NEXT_PUBLIC_APP_TITLE
+
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side')
@@ -39,7 +41,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>november-twenty-eighth</title>
+        <title>{title}</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
