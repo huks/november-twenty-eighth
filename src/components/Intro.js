@@ -64,8 +64,8 @@ export default function Intro({ weddingInfo, sessionInfo }) {
           src={weddingInfo.imageUrl}
           alt=""
           layout="responsive"
-          width={444}
-          height={665}
+          width={375}
+          height={562}
           objectFit="cover"
           objectPosition="bottom"
           placeholder="empty"
