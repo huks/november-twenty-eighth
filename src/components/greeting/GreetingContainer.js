@@ -61,8 +61,8 @@ export default function GreetingContainer({ weddingInfo }) {
           src={weddingInfo.secondaryImageUrl}
           alt=""
           layout="responsive"
-          width={444}
-          height={468}
+          width={375}
+          height={469}
           objectFit="cover"
           objectPosition="bottom"
           placeholder="empty"

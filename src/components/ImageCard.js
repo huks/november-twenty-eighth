@@ -44,8 +44,8 @@ export default function ImageCard(imageProps) {
         src={imageProps.src}
         alt={imageProps.alt}
         layout="responsive"
-        width={444}
-        height={468}
+        width={375}
+        height={469}
         objectFit="cover"
         objectPosition="bottom"
         placeholder="blur"
