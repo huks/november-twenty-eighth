@@ -86,6 +86,7 @@ export default function Gallery({ photos }) {
     speed: 450,
     slidesToShow: 1,
     slidesToScroll: 1,
+    touchThreshold: 20,
     afterChange: (current) => onSlideChange(current),
     appendDots: (dots) => {
       return <MagicSliderDots dots={dots} numDotsToShow={5} dotWidth={30} />
