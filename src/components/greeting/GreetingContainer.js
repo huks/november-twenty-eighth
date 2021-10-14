@@ -62,7 +62,7 @@ export default function GreetingContainer({ weddingInfo }) {
           alt=""
           layout="responsive"
           width={375}
-          height={469}
+          height={562}
           objectFit="cover"
           objectPosition="bottom"
           placeholder="empty"
