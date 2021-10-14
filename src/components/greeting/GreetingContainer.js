@@ -41,13 +41,15 @@ export default function GreetingContainer({ weddingInfo }) {
           variant="body2"
           style={{ margin: '2rem 1rem 4rem', lineHeight: '1.5rem' }}
         >
-          어제의 너와 내가 오늘의 우리가 되어
+          서로 마주보며 다져온 사랑을
           <br />
-          저희 두 사람 이제 한길을 같이 걷고자 합니다.
+          이제 함께 한 곳을 바라보며 걸어갈 수 있는
           <br />
-          저희가 내딛는 첫 걸음에
+          큰 사랑으로 키우고자 합니다.
           <br />
-          오셔서 따뜻한 사랑으로 축복해 주십시오.
+          저희 두 사람이 사랑의 이름으로 지켜나갈 수 있게
+          <br />
+          앞날을 축복해 주시면 감사하겠습니다.
         </Typography>
       </Box>
       {/* FIXME: remove padding bottom */}
