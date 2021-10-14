@@ -78,12 +78,6 @@ const photos = [
     dressCode: 1,
   },
   {
-    imageUrl: '/images/JOY_0589.jpg',
-    title: '11_병주빛나_04',
-    orientation: 'landscape',
-    dressCode: 1,
-  },
-  {
     imageUrl: '/images/JOY_0591.jpg',
     title: '11_병주빛나_05',
     orientation: 'portrait',
