@@ -6,7 +6,7 @@ const photos = [
     dressCode: 0,
   },
   {
-    imageUrl: '/images/CMY_0056.jpg',
+    imageUrl: '/images/CMY_0056-fix.jpg',
     title: '00_빛나_02',
     orientation: 'landscape',
     dressCode: 0,
