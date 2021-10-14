@@ -32,21 +32,8 @@ function Index({ weddingInfo, photos }) {
   const [sessionInfo, setSessionInfo] = useState(null)
 
   useEffect(() => {
-    const { visitor } = router.query
-    switch (visitor) {
-      case 'family': // 가족,친지
-        console.log('invite to first session')
-        setSessionInfo(weddingInfo.sessions[0])
-        break
-      case 'friend': // 친구,동료
-        console.log('invite to second session')
-        setSessionInfo(weddingInfo.sessions[1])
-        break
-      default:
-        console.log('do something?', visitor)
-        setSessionInfo(weddingInfo.sessions[1])
-    }
-  }, [router.query, weddingInfo])
+    setSessionInfo(weddingInfo.sessions[0])
+  }, [weddingInfo])
 
   return (
     <Container className={classes.root} maxWidth="xs">

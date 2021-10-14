@@ -36,43 +36,19 @@ export default function Notice({ weddingInfo, sessionInfo }) {
           >
             코로나로 인해 사회적거리두기 단계격상으로
             <br />
-            인원 제한으로 인해 1, 2부로 나누어
+            인원 제한으로 인해 소수의 인원으로
             <br />
             결혼식을 진행하게 되었습니다.
             <br />
-            {`이 청첩장을 받으시는 분께`}
-            &nbsp;
-            <span className={classes.highlight}>{sessionInfo.description}</span>
-            {`에 초대합니다.`}
             <br />
-          </Typography>
-          <Typography
-            variant="body2"
-            style={{ lineHeight: '1.5rem', marginBottom: '1.5rem' }}
-          >
-            {weddingInfo.sessions[0].description}
-            &nbsp;
-            {`-`}
-            &nbsp;
-            {format(parseISO(weddingInfo.sessions[0].startTime), 'HH:mm')}
-            &nbsp;
-            {`~`}
-            &nbsp;
-            {format(parseISO(weddingInfo.sessions[0].endTime), 'HH:mm')}
-            &nbsp;
-            {`(가족, 친지)`}
+            축하해 주시는 마음만으로도 감사히 여기니,
             <br />
-            {weddingInfo.sessions[1].description}
-            &nbsp;
-            {`-`}
-            &nbsp;
-            {format(parseISO(weddingInfo.sessions[1].startTime), 'HH:mm')}
-            &nbsp;
-            {`~`}
-            &nbsp;
-            {format(parseISO(weddingInfo.sessions[1].endTime), 'HH:mm')}
-            &nbsp;
-            {`(친구, 동료)`}
+            무리해서 참석하지 않으셔도
+            <br />
+            괜찮다는 말씀을 드리고 싶습니다.
+            <br />
+            <br />
+            축하의 마음만으로도 저희에게는 큰 기쁨입니다.
           </Typography>
           <Typography variant="body2">{`* 축하 화환은 정중히 사양합니다. *`}</Typography>
         </CardContent>

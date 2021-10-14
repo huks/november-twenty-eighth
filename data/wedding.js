@@ -22,16 +22,10 @@ const weddingInfo = {
   date: '2021-11-28T12:00:00',
   sessions: [
     {
-      startTime: '2021-11-28T11:00:00',
-      endTime: '2021-11-28T12:30:00',
-      description: '1부',
-      visitor: 'family',
-    },
-    {
-      startTime: '2021-11-28T13:30:00',
-      endTime: '2021-11-28T15:00:00',
-      description: '2부',
-      visitor: 'friend',
+      startTime: '2021-11-28T12:00:00',
+      endTime: '',
+      description: '',
+      visitor: '',
     },
   ],
   place: {

@@ -79,7 +79,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
         title: `${weddingInfo.groom.name} ♥ ${weddingInfo.bride.name} 결혼합니다.`,
         description: `${format(parseISO(sessionInfo.startTime), 'EEEE B h시', {
           locale: ko,
-        })} (${sessionInfo.description})\n${weddingInfo.place.name}`,
+        })} \n${weddingInfo.place.name}`,
         imageUrl: weddingInfo.kakaoImageUrl,
         link: {
           mobileWebUrl: getSiteUrl(),
