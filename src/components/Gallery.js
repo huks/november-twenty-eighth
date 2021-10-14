@@ -81,7 +81,7 @@ export default function Gallery({ photos }) {
 
   const settings = {
     dots: true,
-    // lazyLoad: 'progressive',
+    lazyLoad: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
