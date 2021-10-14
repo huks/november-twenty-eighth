@@ -8,6 +8,8 @@ import ImageCard from './ImageCard'
 import * as gtag from '../lib/gtag'
 import gtm from '../lib/gtm'
 
+import MagicSliderDots from 'react-magic-slider-dots'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     // minHeight: '100vh',
@@ -85,6 +87,9 @@ export default function Gallery({ photos }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (current) => onSlideChange(current),
+    appendDots: (dots) => {
+      return <MagicSliderDots dots={dots} numDotsToShow={5} dotWidth={30} />
+    },
   }
 
   useEffect(() => {

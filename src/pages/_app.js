@@ -12,7 +12,11 @@ import gtm from '../lib/gtm'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import './slick-override.css'
+
+import 'react-magic-slider-dots/dist/magic-dots.css'
+
+import './slick-override.css' // important
+
 // import 'react-calendar/dist/Calendar.css'
 import '../components/calendar/Calendar.css'
 

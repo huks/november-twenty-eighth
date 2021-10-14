@@ -16,6 +16,7 @@
     "react-dom": "latest",
     "react-ga": "^3.3.0",
     "react-gtm-module": "^2.0.11",
+    "react-magic-slider-dots": "^1.2.2",
     "react-slick": "^0.28.1",
     "sharp": "^0.29.1",
     "slick-carousel": "^1.8.1"

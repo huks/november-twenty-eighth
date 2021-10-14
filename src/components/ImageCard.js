@@ -7,7 +7,7 @@ import Image from 'next/image'
 const useStyles = makeStyles({
   root: {
     // maxWidth: 645,
-    background: 'rgba(0,0,0,0.5)',
+    background: '#f3f3f3',
     // margin: '20px',
     display: 'block',
   },
@@ -46,8 +46,8 @@ export default function ImageCard(imageProps) {
         layout="responsive"
         width={375}
         height={562}
-        objectFit="cover"
-        objectPosition="bottom"
+        objectFit="contain"
+        // objectPosition="bottom"
         placeholder="blur"
         blurDataURL={imageProps.blurDataURL}
       />
