@@ -136,7 +136,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
       <Box style={{ marginTop: 12 }} onClick={handleCopyright}>
         <Typography variant="caption" className={classes.copyright}>
           {'© '}
-          {`김병주`}
+          {`김병주&원빛나`}
           &nbsp;
           {new Date().getFullYear()}
         </Typography>
