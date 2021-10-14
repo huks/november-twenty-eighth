@@ -83,7 +83,7 @@ export default function Gallery({ photos }) {
     dots: true,
     lazyLoad: false,
     infinite: false,
-    speed: 500,
+    speed: 450,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: (current) => onSlideChange(current),
