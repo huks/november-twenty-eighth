@@ -117,7 +117,9 @@ export default function Account() {
                 <Typography className={classes.text}>
                   카카오뱅크 3333-14-0865923
                 </Typography>
-                <Typography className={classes.text}>김병주</Typography>
+                <Typography
+                  className={classes.text}
+                >{`김병주 (부: 김충정, 모: 김응숙)`}</Typography>
               </Box>
               <Box className={classes.box3}>
                 <Button
@@ -152,7 +154,9 @@ export default function Account() {
                 <Typography className={classes.text}>
                   우리은행 1002-251-007485
                 </Typography>
-                <Typography className={classes.text}>원빛나</Typography>
+                <Typography
+                  className={classes.text}
+                >{`원빛나 (부: 원동일, 모: 이광식)`}</Typography>
               </Box>
               <Box className={classes.box3}>
                 <Button
