@@ -87,6 +87,7 @@ export default function Account() {
       })
       .catch(() => {
         console.error('copyToClipboard error')
+        alert('복사할 수 없습니다.')
       })
     gtm.event({
       action: 'share',
