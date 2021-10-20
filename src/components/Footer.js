@@ -9,6 +9,7 @@ import * as gtag from '../lib/gtag'
 import gtm from '../lib/gtm'
 import ShareIcon from '@material-ui/icons/Share'
 import LinkIcon from '@material-ui/icons/Link'
+import copyToClipboard from '../utils/copyToClipboard'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -100,9 +101,13 @@ export default function Footer({ weddingInfo, sessionInfo }) {
 
   const handleUrlCopy = () => {
     const url = getSiteUrl()
-    navigator.clipboard.writeText(url).then(() => {
-      alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
-    })
+    copyToClipboard(url)
+      .then(() => {
+        alert(`주소가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`)
+      })
+      .catch(() => {
+        console.error('copyToClipboard error')
+      })
     gtm.event({
       action: 'share',
       category: 'footer',
