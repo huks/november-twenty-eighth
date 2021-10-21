@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import * as gtag from '../lib/gtag'
 import gtm from '../lib/gtm'
 import copyToClipboard from '../utils/copyToClipboard'
+import { useSnackbar } from 'notistack'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Account() {
   const classes = useStyles()
+  const { enqueueSnackbar } = useSnackbar()
 
   const handleClick = (type) => {
     let val = ''
@@ -81,7 +83,10 @@ export default function Account() {
     }
     copyToClipboard(val)
       .then(() => {
-        alert(
+        // alert(
+        //   `계좌번호(${val})가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`
+        // )
+        enqueueSnackbar(
           `계좌번호(${val})가 복사되었습니다.\n필요한 곳에 붙여넣기 하세요.`
         )
       })

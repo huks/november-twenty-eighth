@@ -20,6 +20,8 @@ import './slick-override.css' // important
 // import 'react-calendar/dist/Calendar.css'
 import '../components/calendar/Calendar.css'
 
+import { SnackbarProvider } from 'notistack'
+
 export default function MyApp(props) {
   const { Component, pageProps } = props
   const router = useRouter()
@@ -52,9 +54,21 @@ export default function MyApp(props) {
         />
       </Head>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
+        <SnackbarProvider
+          dense
+          maxSnack={1}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          style={{
+            whiteSpace: 'pre-line',
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </SnackbarProvider>
       </ThemeProvider>
     </React.Fragment>
   )

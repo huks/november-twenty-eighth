@@ -9,6 +9,7 @@
     "clsx": "latest",
     "date-fns": "^2.23.0",
     "next": "latest",
+    "notistack": "^1.0.10",
     "plaiceholder": "^2.0.1",
     "prop-types": "latest",
     "react": "latest",
