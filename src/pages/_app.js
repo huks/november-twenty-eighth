@@ -58,6 +58,7 @@ export default function MyApp(props) {
           dense
           maxSnack={1}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          autoHideDuration={2000}
           style={{
             whiteSpace: 'pre-line',
             display: 'flex',
