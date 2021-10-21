@@ -56,7 +56,7 @@ export default function Footer({ weddingInfo, sessionInfo }) {
   const classes = useStyles()
 
   const getSiteUrl = () => {
-    return `${kakaoConfig.siteDomain}/?visitor=${sessionInfo.visitor}`
+    return `${kakaoConfig.siteDomain}`
   }
 
   useEffect(() => {
