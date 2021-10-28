@@ -25,7 +25,7 @@ const theme = createTheme({
       '@global': {
         '@font-face': [sunBatangLight, sunBatangMedium, pretendardRegular],
         body: {
-          touchAction: 'pan-y',
+          // touchAction: 'pan-y',
           backgroundColor: '#313131',
         },
       },
